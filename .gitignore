@@ -1,0 +1,6 @@
+# Node modules
+node_modules
+# Log files
+*.log
+# Server files builds
+dist
