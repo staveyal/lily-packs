@@ -7,6 +7,6 @@ RUN npm install
 COPY ./dist ./dist
 COPY ./public ./public
 
-EXPOSE 8080
+EXPOSE ${SERVERPORT}
 
 CMD ["npm", "run", "serve"]
