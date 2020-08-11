@@ -6,3 +6,5 @@ node_modules
 dist
 # ENV files
 .env
+# Ignore built JS files
+public/js
