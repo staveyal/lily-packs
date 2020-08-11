@@ -6,7 +6,7 @@ RUN npm install
 COPY ./server ./server
 COPY ./tsconfig.json ./tsconfig.json
 COPY ./src ./src
-COPY webpack.config.js
+COPY webpack.config.js webpack.config.js
 RUN npm run build
 RUN npm prune --production
 
