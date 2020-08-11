@@ -4,3 +4,5 @@ node_modules
 *.log
 # Server files builds
 dist
+# ENV files
+.env
