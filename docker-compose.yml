@@ -1,12 +1,10 @@
-version: '3.3'
+version: '3'
 services:
   web:
     build: .
-    env_file: .env
     ports:
-      - '${SERVERPORT}:${SERVERPORT}'
+      - "${SERVERPORT}:${SERVERPORT}"
   postgres:
     image: 'postgres:12.3'
-    env_file: .env
     ports:
-      - '${PGPORT}'
+      - ${PGPORT}
