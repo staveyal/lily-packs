@@ -7,5 +7,6 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(express.static(path.join(__dirname, '../public')))
+const port: number = process.env.SERVERPORT ? parseInt(process.env.SERVERPORT, 10) : 8080
 
-app.listen(8080, () => console.log('Lily Packs listening on port 8080'))
+app.listen(port, () => console.log(`Lily Packs listening on port ${port}`))
