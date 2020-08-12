@@ -1,0 +1,14 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.gridItem {
+  img {
+    width: 50%;
+    border-radius: 2%;
+    border: 3px solid black;
+  }
+  p {
+    margin: auto 0;
+  }
+}
