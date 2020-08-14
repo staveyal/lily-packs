@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "node dist/main.js",
-    "build": "npm run build:server && npm run build:frontend",
+    "build": "npm run build:server && npm run build:fe",
     "build:server": "tsc",
-    "build:frontend": "webpack"
+    "build:fe": "webpack --progress"
   },
   "keywords": [],
   "author": "",
