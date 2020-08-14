@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FunctionComponent } from 'react'
 
 interface GridItemProps {
   readonly name: string // The name of the pack
@@ -10,7 +10,7 @@ interface GridItemProps {
 /**
  * Component code for the items inside the grid of the packs
  */
-const GridItem: React.FunctionComponent<GridItemProps> =
+const GridItem: FunctionComponent<GridItemProps> =
 ({ name, thumbnailUrl, price, inStock }: GridItemProps) => {
   return <a className='gridItem'>
     <img src={thumbnailUrl} alt={name} />
