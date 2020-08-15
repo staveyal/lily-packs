@@ -16,7 +16,7 @@ module.exports = {
       enforce: 'pre',
       loader: 'ts-loader'
     }, {
-      test: /\.scss$/,
+      test: /\.s[ac]ss$/,
       use: [
         'style-loader',
         'css-loader',
