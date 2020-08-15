@@ -8,7 +8,8 @@
     "serve": "node dist/main.js",
     "build": "npm run build:server && npm run build:fe",
     "build:server": "tsc",
-    "build:fe": "webpack --progress"
+    "build:fe": "webpack --progress",
+    "watch:fe": "webpack --progress --watch"
   },
   "keywords": [],
   "author": "",
