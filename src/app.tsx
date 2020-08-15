@@ -1,7 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { GridItem } from './components/Grid'
-import './style/grid.scss'
+import { Grid, GridItemProps } from './components/Grid'
+import './style/index.scss'
 
-ReactDOM.render(<GridItem thumbnailUrl='img/example.jpg' name='pack' price={120} inStock />,
-  document.querySelector('#root'))
+const packs: GridItemProps[] = []
+for (let i = 0; i < 10; i++) {
+  packs.push({
+    name: `Pack ${i}`,
+    thumbnailUrl: 'img/example.jpg',
+    price: 120,
+    inStock: true
+  })
+}
+
+ReactDOM.render(<Grid packs={packs} />, document.querySelector('#root'))

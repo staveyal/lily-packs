@@ -1,14 +1,36 @@
+/*
+ * Main pack grid CSS
+ * Centred flexbox with flex-wrap
+ */
 .grid {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
 }
-.gridItem {
+
+/*
+ * CSS for the items inside of the grid
+ */
+.grid-item {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: calc(33.33333% - 30px);
+  display: flex;
+  flex-direction: column;
+  font-size: medium;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 10px 15px;
+
   img {
-    width: 50%;
-    border-radius: 2%;
-    border: 3px solid black;
+    border-radius: 2%; border: 3px solid black;
+    height: auto;
+    width: 100%;
   }
   p {
-    margin: auto 0;
+    margin: 20px 0;
   }
 }
