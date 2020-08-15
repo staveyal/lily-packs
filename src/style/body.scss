@@ -1,5 +1,10 @@
+@use './vars';
 // Reset CSS margins and paddings
 * {
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: vars.$font-face;
 }
