@@ -4,10 +4,11 @@ services:
     build: .
     environment:
       - SERVERPORT
+      - NODE_ENV
     ports:
       - "${SERVERPORT}:${SERVERPORT}"
   postgres:
-    image: 'postgres:12.3'
+    image: 'postgres:alpine'
     environment:
       - POSTGRES_PASSWORD
     ports:
