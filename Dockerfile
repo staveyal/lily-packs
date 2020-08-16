@@ -17,4 +17,4 @@ COPY ./public ./public
 
 EXPOSE ${SERVERPORT}
 
-CMD ["npm", "run", "serve"]
+CMD ["npm", "start"]
