@@ -2,11 +2,13 @@ version: '3'
 services:
   web:
     build: .
+    environment:
+      - SERVERPORT
     ports:
       - "${SERVERPORT}:${SERVERPORT}"
   postgres:
     image: 'postgres:12.3'
     environment:
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_PASSWORD
     ports:
       - ${PGPORT}
