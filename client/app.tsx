@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Grid } from './components/Grid'
+import { HomePage } from './pages/HomePage'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 import './style/index.scss'
 
@@ -14,5 +14,5 @@ const client = new ApolloClient({
 })
 
 ReactDOM.render(<ApolloProvider client={client}>
-  <Grid />
+  <HomePage />
 </ApolloProvider>, document.querySelector('#root'))
