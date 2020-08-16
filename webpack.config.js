@@ -1,5 +1,6 @@
 const path = require('path')
-const srcPath = path.join(__dirname, 'src')
+const DotenvWebpackPlugin = require('dotenv-webpack')
+const srcPath = path.join(__dirname, 'client')
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
@@ -25,6 +26,10 @@ module.exports = {
     }]
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.jsx']
-  }
+    extensions: ['.ts', '.tsx', '.js', '.jsx']
+  },
+  plugins: [
+    // Vars from .env
+    new DotenvWebpackPlugin()
+  ]
 }
