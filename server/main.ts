@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 // Serve static files
 app.use(express.static(path.join(__dirname, '..', 'public')))
-const port: number = process.env.SERVERPORT ? parseInt(process.env.SERVERPORT, 10) : 8080
+const port: number = typeof process.env.SERVERPORT !== 'undefined' ? parseInt(process.env.SERVERPORT, 10) : 8080
 
 interface pack {
   readonly name: string,
