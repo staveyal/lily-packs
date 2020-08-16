@@ -13,6 +13,9 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 })
 
+console.log('port ' + port)
+console.log('process.env.SERVERPORT ' + process.env.SERVERPORT)
+
 ReactDOM.render(<ApolloProvider client={client}>
   <Grid />
 </ApolloProvider>, document.querySelector('#root'))
