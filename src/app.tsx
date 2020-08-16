@@ -4,17 +4,6 @@ import { Grid } from './components/Grid'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 import './style/index.scss'
 
-// // Mock data
-// const packs: GridItemProps[] = []
-// for (let i = 0; i < 10; i++) {
-//   packs.push({
-//     name: `Pack ${i}`,
-//     thumbnailUrl: 'img/example.jpg',
-//     price: 120,
-//     inStock: true
-//   })
-// }
-
 /**
  * Initialising the Apollo client
  */
