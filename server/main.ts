@@ -1,7 +1,11 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import path from 'path'
+import { config } from 'dotenv'
 import { ApolloServer, gql } from 'apollo-server-express'
+
+// Import env vars from .env file
+config()
 
 /**
  * Create an express instance and apply middleware
