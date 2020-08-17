@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import { useQuery, gql, QueryResult } from '@apollo/client'
+import styled from 'styled-components'
 
 /**
  * The GraphQL query for retrieving packs from the server
@@ -25,19 +26,53 @@ export interface Pack {
   readonly inStock: boolean // Is the pack in stock
 }
 
+const GridLink = styled.a`
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: calc(33.33333% - 1.6rem);
+  display: flex;
+  flex-direction: column;
+  font-size: medium;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0 0.8rem;
+  margin-bottom: 2.2rem;
+  @media only screen and (max-width: 768px) {
+    flex-basis: calc(50% - 1rem);
+    margin: 0 0.5rem;
+  }
+`
+
+const Title = styled.p`
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 1rem;
+`
+const Thumbnail = styled.img`
+  height: auto;
+  width: 100%;
+`
 /**
  * Component code for the items inside the grid of the packs
  */
 const GridItem: FunctionComponent<Pack> =
 ({ name, thumbnailUrl, price, inStock }: Pack) =>
-  <a className='grid-item'>
-    <img src={thumbnailUrl} alt={name} />
-    <p>{name}</p>
-  </a>
+  <GridLink>
+    <Thumbnail src={thumbnailUrl} />
+    <Title>{name}</Title>
+  </GridLink>
 
-// interface GridProps {
-//   readonly packs: Pack[]
-// }
+const FlexBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  width: 85%;
+  @media only screen and (max-width: 768px) {
+    width: 95%;
+  }
+`
 
 /**
  * Grid for the packs
@@ -47,9 +82,9 @@ const Grid: FunctionComponent = () => {
   if (loading) return <div>Loading</div>
   if (error) return <div>Error</div>
   if (typeof data !== 'undefined') {
-    return <div className='grid'>
+    return <FlexBox>
       { data.packs.map(pack => <GridItem key={pack.name} {...pack} />)}
-    </div>
+    </FlexBox>
   } else return <div>Big Error</div>
 }
 
