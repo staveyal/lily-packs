@@ -4,7 +4,6 @@ FROM node:alpine
 COPY package*.json ./
 RUN npm install --production
 COPY ./dist ./dist
-COPY ./public ./public
 COPY ./server/queries ./server/queries
 
 EXPOSE ${SERVERPORT}

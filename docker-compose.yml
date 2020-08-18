@@ -13,6 +13,8 @@ services:
       - "${SERVERPORT}:${SERVERPORT}"
     depends_on:
       - db
+    volumes:
+      - ./public:/public
   db:
     image: 'postgres:alpine'
     environment:
