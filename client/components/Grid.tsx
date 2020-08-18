@@ -10,8 +10,6 @@ const PACKS = gql`
     packs {
       name
       thumbnailUrl
-      price
-      inStock
     }
   }
 `
@@ -22,8 +20,7 @@ interface PacksData {
 export interface Pack {
   readonly name: string // The name of the pack
   readonly thumbnailUrl: string // The URL for the thumbnail picture of the pack
-  readonly price: number // Price in shekels
-  readonly inStock: boolean // Is the pack in stock
+  readonly inStock?: boolean // Is the pack in stock
 }
 
 const GridLink = styled.a`
@@ -56,7 +53,7 @@ const Thumbnail = styled.img`
  * Component code for the items inside the grid of the packs
  */
 const GridItem: FunctionComponent<Pack> =
-({ name, thumbnailUrl, price, inStock }: Pack) =>
+({ name, thumbnailUrl }: Pack) =>
   <GridLink>
     <Thumbnail src={thumbnailUrl} />
     <Title>{name}</Title>
