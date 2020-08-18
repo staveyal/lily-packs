@@ -1,4 +1,8 @@
 import { ApolloServer, gql } from 'apollo-server-express'
+import { createTable } from './db'
+createTable()
+  .then(() => console.log('Successfully created packs table'))
+  .catch(err => console.error(err))
 
 interface pack {
   readonly name: string,
