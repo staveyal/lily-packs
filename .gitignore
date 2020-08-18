@@ -8,3 +8,5 @@ dist
 .env
 # Ignore built JS files
 public/js
+# Raw DB data
+pgdata
