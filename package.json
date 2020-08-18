@@ -10,7 +10,7 @@
     "build:server": "tsc",
     "build:fe": "webpack --progress",
     "watch:fe": "webpack --progress --watch",
-    "watch:server": "tsc-watch --onSuccess 'npm start'"
+    "watch:server": "tsc-watch --onSuccess \"node dist/main.js\""
   },
   "keywords": [],
   "author": "",
