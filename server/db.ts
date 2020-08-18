@@ -17,20 +17,7 @@ const pool = new Pool({
   password: process.env.POSTGRES_PASSWORD
 })
 
-// let retries = 5
-// // Retry connecting for Docker Compose
-// while (retries !== 0) {
-//   try {
-//     await pool.connect()
-//       .then(() => {
-//         console.log('DB connection successful')
-//       })
-//   } catch (err) {
-//     console.log(err)
-//     retries--
-//   }
-// }
-
+// Retry connecting 5 times to PostgreSQL server because of Docker container setup time
 const connect = async ():Promise<void> => {
   for (let i = 5; i !== 0; i--) {
     try {
@@ -39,9 +26,12 @@ const connect = async ():Promise<void> => {
     } catch (err) {
       console.log(err)
       console.log(`Retries left: ${i - 1}`)
+      // Wait 3 seconds before trying to reconnect
+      setTimeout(3)
     }
   }
 }
+
 connect()
 const createTable = async ():Promise<void> => {
   pool.query(TABLE_PACKS)
