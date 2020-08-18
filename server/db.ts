@@ -27,16 +27,17 @@ const connect = async ():Promise<void> => {
       console.log(err)
       console.log(`Retries left: ${i - 1}`)
       // Wait 3 seconds before trying to reconnect
-      setTimeout(3)
+      await new Promise(resolve => setTimeout(resolve, 5000))
     }
   }
 }
 
-connect()
+// Creates the packs table inside the database
 const createTable = async ():Promise<void> => {
   pool.query(TABLE_PACKS)
     .then(() => console.log('Created DB table'))
     .catch(err => console.error(err))
 }
+const createConnection = async ():Promise<void> => connect().then(() => createTable())
 
-export { createTable }
+export { pool, createConnection }

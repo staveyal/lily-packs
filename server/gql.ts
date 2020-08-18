@@ -1,8 +1,5 @@
 import { ApolloServer, gql } from 'apollo-server-express'
-import { createTable } from './db'
-createTable()
-  .then(() => console.log('Successfully created tables'))
-  .catch(err => console.error(err))
+import { pool, createConnection } from './db'
 
 interface pack {
   readonly name: string,
@@ -10,6 +7,8 @@ interface pack {
   readonly thumbnailUrl: string,
   readonly inStock: boolean
 }
+
+createConnection()
 
 /**
  * GraphQL type definitions
