@@ -6,6 +6,7 @@ const queryPath = path.join(process.cwd(), 'server', 'queries')
 
 // Import queries from files
 const TABLE_PACKS = fs.readFileSync(path.join(queryPath, 'create-pack-table.sql'), 'utf-8')
+const ADD_PACK = fs.readFileSync(path.join(queryPath, 'add-pack.sql'), 'utf-8')
 
 const port: number = typeof process.env.PGPORT !== 'undefined' ? parseInt(process.env.PGPORT, 10) : 5432
 // Create DB connection pool
