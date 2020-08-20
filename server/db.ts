@@ -1,4 +1,4 @@
-import { Pool, QueryArrayResult } from 'pg'
+import { Pool } from 'pg'
 import fs from 'fs'
 import path from 'path'
 
