@@ -1,4 +1,4 @@
-import { Pool } from 'pg'
+import { Pool, QueryArrayResult } from 'pg'
 import fs from 'fs'
 import path from 'path'
 
@@ -6,10 +6,9 @@ const queryPath = path.join(process.cwd(), 'server', 'queries')
 
 // Import queries from files
 const TABLE_PACKS = fs.readFileSync(path.join(queryPath, 'create-pack-table.sql'), 'utf-8')
-const ADD_PACK = fs.readFileSync(path.join(queryPath, 'add-pack.sql'), 'utf-8')
+// const ADD_PACK = fs.readFileSync(paproductionth.join(queryPath, 'add-pack.sql'), 'utf-8')
 
 const port: number = typeof process.env.PGPORT !== 'undefined' ? parseInt(process.env.PGPORT, 10) : 5432
-// Create DB connection pool
 const pool = new Pool({
   user: process.env.POSTGRES_USER,
   database: process.env.POSTGRES_USER,
@@ -41,4 +40,7 @@ const createTable = async ():Promise<void> => {
 }
 const createConnection = async ():Promise<void> => connect().then(() => createTable())
 
-export { pool, createConnection }
+const getVisiblePacks = async ():Promise<any[]> =>
+  pool.query('SELECT * FROM packs WHERE show = true AND amount > 0').then(res => res.rows)
+
+export { createConnection, getVisiblePacks }

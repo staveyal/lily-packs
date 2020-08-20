@@ -1,12 +1,5 @@
 import { ApolloServer, gql } from 'apollo-server-express'
-import { pool, createConnection } from './db'
-
-interface pack {
-  readonly name: string,
-  readonly price: number,
-  readonly thumbnailUrl: string,
-  readonly inStock: boolean
-}
+import { createConnection, getVisiblePacks } from './db'
 
 createConnection()
 
@@ -15,31 +8,32 @@ createConnection()
  */
 const typeDefs = gql`
   type Pack {
+    id: ID!,
     name: String,
     thumbnailUrl: String,
     price: Int,
-    inStock: Boolean
+    show: Boolean,
+    slug: String,
+    desc: String
   }
 
   type Query {
-    packs: [Pack]
+    Packs: [Pack!]!
   }
 `
 
-// Mock data
-const packs: pack[] = []
-for (let i = 0; i < 11; i++) {
-  packs.push({
-    name: `חבילה מס ${i}`,
-    thumbnailUrl: '/img/example.jpg',
-    inStock: true,
-    price: Math.floor(Math.random() * 3 + 1) * 120
-  })
-}
-
 const resolvers = {
   Query: {
-    packs: () => packs
+    Packs: async () => getVisiblePacks().then(res =>
+      res.sort((a, b) => a.place === 0 || b.place === 0 ? 1 : a.place - b.place)
+        .map(pack => ({
+          id: pack.id,
+          name: pack.name,
+          thumbnailUrl: pack.img,
+          price: pack.price,
+          slug: pack.slug,
+          desc: pack.specs
+        })))
   }
 }
 
