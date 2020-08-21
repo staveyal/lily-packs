@@ -1,5 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+// import {
+//   BrowserRouter as Router,
+//   Route,
+//   Switch,
+//   RouteComponentProps
+// } from 'react-router-dom'
 import { HomePage } from './pages/HomePage'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 import './style/index.scss'
@@ -14,5 +20,10 @@ const client = new ApolloClient({
 })
 
 ReactDOM.render(<ApolloProvider client={client}>
+  {/* <Router>
+    <Switch>
+      <Route render={(props: RouteComponentProps) => <HomePage {...props}/>}/>
+    </Switch>
+  </Router> */}
   <HomePage />
 </ApolloProvider>, document.querySelector('#root'))
