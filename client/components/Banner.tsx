@@ -41,7 +41,7 @@ const LilyIcon = styled.img`
   z-index: 3; */
   position: absolute;
   top: -1vw;
-  left: calc(50% - 9vw);
+  left: calc(50% - 12.5vw);
   height: 25vw;
   width: 25vw;
   z-index: 3;
@@ -55,7 +55,7 @@ const LilyIcon = styled.img`
     z-index: 3; */
     position: absolute;
     top: 1vh;
-    left: calc(50% - 10vw);
+    left: calc(50% - 15vw);
     height: 30vw;
     width: 30vw;
     z-index: 3;
@@ -71,20 +71,24 @@ const LilyIcon = styled.img`
 `
 
 // The underline for the icon
-const Underline = styled.div`
-  position: absolute;
-  top: 2rem;
-  left: 50%;
-  z-index: 2;
-  height: 1.5rem;
-  width: 30vw;
+// const Underline = styled.div`
+//   position: absolute;
+//   top: 2rem;
+//   left: 50%;
+//   z-index: 2;
+//   height: 1.5rem;
+//   width: 30vw;
+// `
+
+const BannerSection = styled.section`
+position: relative;
 `
 
-const Banner: FunctionComponent = () => <section>
+const Banner: FunctionComponent = () => <BannerSection>
   <BannerGradient />
   <BannerImage>
     <LilyIcon src='/img/logo-white.png'/>
   </BannerImage>
-</section>
+</BannerSection>
 
 export { Banner }
