@@ -4,6 +4,7 @@ const srcPath = path.join(__dirname, 'client')
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
+  devtool: 'inline-source-map',
   entry: {
     app: path.join(srcPath, 'app.tsx')
   },
@@ -26,7 +27,12 @@ module.exports = {
     }]
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx']
+    // Enable webpack to resolve file extensions on imports
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    alias: {
+      components: path.join(srcPath, 'components', 'index.ts'),
+      pages: path.join(srcPath, 'pages', 'index.ts')
+    }
   },
   plugins: [
     // Vars from .env
