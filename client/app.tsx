@@ -12,7 +12,7 @@ import './style/index.scss'
 /**
  * Initialising the Apollo client
  */
-const port: number = typeof process.env.SERVERPORT !== 'undefined' ? parseInt(process.env.SERVERPORT, 10) : 8080
+const port: number = typeof process.env.PORT !== 'undefined' ? parseInt(process.env.PORT, 10) : 8080
 const client = new ApolloClient({
   uri: `http://localhost:${port}/graphql`,
   cache: new InMemoryCache()
