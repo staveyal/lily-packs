@@ -10,13 +10,16 @@ const TABLE_PACKS = fs.readFileSync(path.join(queryPath, 'create-pack-table.sql'
 const port: number = typeof process.env.PGPORT !== 'undefined' ? parseInt(process.env.PGPORT, 10) : 5432
 
 // Initiate DB connection pool (see node-postgres)
-const pool = new Pool({
-  user: process.env.POSTGRES_USER,
-  database: process.env.POSTGRES_USER,
-  port,
-  host: process.env.DB_HOST,
-  password: process.env.POSTGRES_PASSWORD
-})
+const poolArgs = typeof process.env.DATABASE_URL !== 'undefined'
+  ? { connectionString: process.env.DATABASE_URL }
+  : {
+    user: process.env.POSTGRES_USER,
+    database: process.env.POSTGRES_USER,
+    port,
+    host: process.env.DB_HOST,
+    password: process.env.POSTGRES_PASSWORD
+  }
+const pool = new Pool(poolArgs)
 
 // Retry connecting 5 times to PostgreSQL server because of Docker Compose setup time
 const connect = async ():Promise<void> => {

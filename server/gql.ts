@@ -16,6 +16,7 @@ const typeDefs = gql`
     name: String,
     img: String,
     price: Int,
+    amount: Int,
     show: Boolean,
     slug: String,
     specs: String
@@ -23,7 +24,7 @@ const typeDefs = gql`
 
   type Query {
     packs: [Pack!]!,
-    packDetails(slug: String!): Pack!
+    pack(slug: String!): Pack!
   }
 `
 
@@ -31,7 +32,7 @@ const resolvers = {
   Query: {
     packs: async () => getVisiblePacks().then(res =>
       res.sort((a, b) => a.place === 0 || b.place === 0 ? 1 : a.place - b.place)),
-    packDetails: async (_: any, args: any) => getPackDetails(args.slug)
+    pack: async (_: any, args: any) => getPackDetails(args.slug)
   }
 }
 
