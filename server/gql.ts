@@ -1,5 +1,9 @@
 import { ApolloServer, gql } from 'apollo-server-express'
-import { createConnection, getVisiblePacks } from './db'
+import {
+  createConnection,
+  getVisiblePacks,
+  getPackDetails
+} from './db'
 
 createConnection()
 
@@ -10,30 +14,24 @@ const typeDefs = gql`
   type Pack {
     id: ID!,
     name: String,
-    thumbnailUrl: String,
+    img: String,
     price: Int,
     show: Boolean,
     slug: String,
-    desc: String
+    specs: String
   }
 
   type Query {
-    Packs: [Pack!]!
+    packs: [Pack!]!,
+    packDetails(slug: String!): Pack!
   }
 `
 
 const resolvers = {
   Query: {
-    Packs: async () => getVisiblePacks().then(res =>
-      res.sort((a, b) => a.place === 0 || b.place === 0 ? 1 : a.place - b.place)
-        .map(pack => ({
-          id: pack.id,
-          name: pack.name,
-          thumbnailUrl: pack.img,
-          price: pack.price,
-          slug: pack.slug,
-          desc: pack.specs
-        })))
+    packs: async () => getVisiblePacks().then(res =>
+      res.sort((a, b) => a.place === 0 || b.place === 0 ? 1 : a.place - b.place)),
+    packDetails: async (_: any, args: any) => getPackDetails(args.slug)
   }
 }
 

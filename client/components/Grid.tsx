@@ -6,30 +6,26 @@ import styled from 'styled-components'
  * The GraphQL query for retrieving packs from the server
  */
 const PACKS = gql`
-  query Packs {
-  Packs {
-    id
-    desc
-    name
-    thumbnailUrl
-    price
-    show
-    slug
-  }
+  query {
+    packs {
+      id
+      name
+      img
+      price
+      slug
+    }
 }
 `
 interface PacksData {
-  Packs: Pack[]
+  packs: Pack[]
 }
 
 export interface Pack {
   readonly id: number
-  readonly desc: string
   readonly name: string // The name of the pack
-  readonly thumbnailUrl: string // The URL for the thumbnail picture of the pack
-  readonly price: number
-  readonly show: boolean // Is the pack in stock
+  readonly img: string // The URL for the thumbnail picture of the pack
   readonly slug: string
+  readonly price: number
 }
 
 const GridLink = styled.a`
@@ -78,9 +74,9 @@ const Thumbnail = styled.div<{ src: string }>`
  * Component code for the items inside the grid of the packs
  */
 const GridItem: FunctionComponent<Pack> =
-({ name, thumbnailUrl }: Pack) =>
+({ name, img }: Pack) =>
   <GridLink>
-    <Thumbnail src={thumbnailUrl} />
+    <Thumbnail src={img} />
     <Title>{name}</Title>
   </GridLink>
 
@@ -105,7 +101,7 @@ const Grid: FunctionComponent = () => {
   if (error) return <div>Error</div>
   if (typeof data !== 'undefined') {
     return <FlexBox>
-      { data.Packs.map(pack => <GridItem key={pack.name} {...pack} />)}
+      { data.packs.map(pack => <GridItem key={pack.name} {...pack} />)}
     </FlexBox>
   } else return <div>Big Error</div>
 }
