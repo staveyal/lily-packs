@@ -41,12 +41,12 @@ const ContentPusher = styled.div`
 `
 
 const Footer: FunctionComponent = () => <section> <FooterContainer>
-  <IconContext.Provider value={{ size: '2.5rem' }} >
+  <IconContext.Provider value={{ size: '2.5rem', color: 'black' }} >
     <Icons>
-      <a href='https://wa.me/972507400155'> <IoLogoWhatsapp color='#009688' /> </a>
-      <a href='tel:+972-50-740-0155'><FaPhoneAlt color='black' /></a>
-      <a href='https://www.facebook.com/lilypacks1/'><GrFacebook color='blue' /></a>
-      <Desc>למכירה צרו קשר עם לילי באמצעי התקשורת השונים</Desc>
+      <a href='https://wa.me/972507400155'> <IoLogoWhatsapp /> </a>
+      <a href='tel:+972-50-740-0155'><FaPhoneAlt /></a>
+      <a href='https://www.facebook.com/lilypacks1/'><GrFacebook /></a>
+      <Desc>להזמנות צרו קשר</Desc>
     </Icons>
   </IconContext.Provider>
 </FooterContainer>
