@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 // Image for the banner
@@ -84,11 +85,13 @@ const BannerSection = styled.section`
 position: relative;
 `
 
-const Banner: FunctionComponent = () => <BannerSection>
-  <BannerGradient />
-  <BannerImage>
-    <LilyIcon src='/img/logo-white.png'/>
-  </BannerImage>
-</BannerSection>
+const Banner: FunctionComponent = () => <Link to='/'>
+  <BannerSection>
+    <BannerGradient />
+    <BannerImage>
+      <LilyIcon src='/img/logo-white.png'/>
+    </BannerImage>
+  </BannerSection>
+</Link>
 
 export { Banner }
