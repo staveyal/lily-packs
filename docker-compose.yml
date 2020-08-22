@@ -3,14 +3,14 @@ services:
   web:
     build: .
     environment:
-      - SERVERPORT
+      - PORT
       - DB_HOST
       - NODE_ENV
       - POSTGRES_PASSWORD
       - POSTGRES_USER
       - POSTGRES_DB=${POSTGRES_USER}
     ports:
-      - "${SERVERPORT}:${SERVERPORT}"
+      - "${PORT}:${PORT}"
     depends_on:
       - db
     volumes:

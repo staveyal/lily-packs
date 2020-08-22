@@ -34,8 +34,5 @@ module.exports = {
       components: path.join(srcPath, 'components', 'index.ts'),
       pages: path.join(srcPath, 'pages', 'index.ts')
     }
-  },
-  plugins: [
-    new webpack.EnvironmentPlugin(['PORT'])
-  ]
+  }
 }
