@@ -1,5 +1,6 @@
 const path = require('path')
 const DotenvWebpackPlugin = require('dotenv-webpack')
+const webpack = require('webpack')
 const srcPath = path.join(__dirname, 'client')
 
 module.exports = {
@@ -35,7 +36,6 @@ module.exports = {
     }
   },
   plugins: [
-    // Vars from .env
-    new DotenvWebpackPlugin()
+    new webpack.DefinePlugin({ 'process.env.PORT': process.env.PORT })
   ]
 }
