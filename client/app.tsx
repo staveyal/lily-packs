@@ -21,7 +21,7 @@ const client = new ApolloClient({
 ReactDOM.render(<Router>
   <ApolloProvider client={client}>
     <Switch>
-      <Route path='/' exact>
+      <Route path='/'>
         <HomePage />
       </Route>
     </Switch>

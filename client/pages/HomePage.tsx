@@ -4,10 +4,8 @@ import {
   Route,
   useRouteMatch
 } from 'react-router-dom'
-// import { PackDetails } from './PackDetails'
-import { Grid } from '../components/Grid'
-import { Banner } from '../components/Banner'
-import { Footer } from '../components/Footer'
+import { PackDetails } from 'pages'
+import { Grid, Banner, Footer } from 'components'
 
 const GridPage: FunctionComponent = () => <div>
   <Banner />
@@ -18,9 +16,9 @@ const GridPage: FunctionComponent = () => <div>
 const HomePage: FunctionComponent = () => {
   const match = useRouteMatch()
   return <Switch>
-    {/* <Route path={`${match.path}/:pack`}>
+    <Route path={`${match.path}:slug`}>
       <PackDetails />
-    </Route> */}
+    </Route>
     <Route path={match.path}>
       <GridPage />
     </Route>
