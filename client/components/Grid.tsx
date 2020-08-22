@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react'
+import { Link, useRouteMatch } from 'react-router-dom'
 import { useQuery, gql, QueryResult } from '@apollo/client'
 import styled from 'styled-components'
 
@@ -28,11 +29,12 @@ export interface Pack {
   readonly price: number
 }
 
-const GridLink = styled.a`
+const GridLink = styled(Link)`
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: calc(33.33333% - 2rem);
   display: flex;
+  text-decoration: none;
   flex-direction: column;
   font-size: larger;
   box-sizing: border-box;
@@ -56,6 +58,16 @@ const GridLink = styled.a`
 const Title = styled.p`
   font-weight: 600;
   margin-top: 1rem;
+  color: black;
+  text-decoration: none;
+  &:hover, &:link, &:visited {
+    color: black;
+    text-decoration: none;
+  }
+  &:active {
+    color: black;
+    text-decoration: underline;
+  }
 `
 const Thumbnail = styled.div<{ src: string }>`
   background-image: url(${props => props.src || '/img/banner.jpg'});
@@ -74,11 +86,13 @@ const Thumbnail = styled.div<{ src: string }>`
  * Component code for the items inside the grid of the packs
  */
 const GridItem: FunctionComponent<Pack> =
-({ name, img }: Pack) =>
-  <GridLink>
+({ name, img, slug }: Pack) => {
+  const { url } = useRouteMatch()
+  return <GridLink to={`${url}${slug}`}>
     <Thumbnail src={img} />
     <Title>{name}</Title>
   </GridLink>
+}
 
 const FlexBox = styled.section`
   display: flex;
