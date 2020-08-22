@@ -106,4 +106,4 @@ const Grid: FunctionComponent = () => {
   } else return <div>Big Error</div>
 }
 
-export { Grid, GridItem }
+export { Grid }
