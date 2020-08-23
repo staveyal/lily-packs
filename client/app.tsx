@@ -13,7 +13,7 @@ import './style/index.scss'
  * Initialising the Apollo client
  */
 const client = new ApolloClient({
-  uri: 'www.lilypacks.com/graphql',
+  uri: '/graphql',
   cache: new InMemoryCache()
 })
 
