@@ -10,6 +10,7 @@ const Name = styled.h1`
 const Details = styled.p`
   font-size: medium;
   white-space: pre;
+  margin-bottom: 1rem;
 `
 const Price = styled.span`
   padding: 0.3rem;
@@ -45,6 +46,7 @@ const Image = styled.img`
 
 const DetailSection = styled.section`
   padding: 0.3rem;
+  display: flex;
 `
 
 const PackDetails: FunctionComponent = () => {
@@ -59,9 +61,11 @@ const PackDetails: FunctionComponent = () => {
     return <div>
       <Banner />
       <DetailSection>
-        <Name>{name}</Name>
-        <Details>{specs}</Details>
-        <Price>₪{price}</Price>
+        <div>
+          <Name>{name}</Name>
+          <Details>{specs}</Details>
+          <Price>₪{price}</Price>
+        </div>
         <Image src={img} />
       </DetailSection>
       <Footer />
