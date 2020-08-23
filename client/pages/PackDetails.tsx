@@ -9,6 +9,7 @@ const Name = styled.h1`
 `
 const Details = styled.p`
   font-size: medium;
+  white-space: pre;
 `
 const Price = styled.span`
   padding: 0.3rem;
@@ -59,7 +60,7 @@ const PackDetails: FunctionComponent = () => {
       <Banner />
       <DetailSection>
         <Name>{name}</Name>
-        <Details>{specs.replace('\n', '<br/>')}</Details>
+        <Details>{specs}</Details>
         <Price>₪{price}</Price>
         <Image src={img} />
       </DetailSection>
