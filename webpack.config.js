@@ -1,6 +1,5 @@
 const path = require('path')
-const DotenvWebpackPlugin = require('dotenv-webpack')
-const webpack = require('webpack')
+const TerserPlugin = require('terser-webpack-plugin')
 const srcPath = path.join(__dirname, 'client')
 
 module.exports = {
@@ -34,5 +33,13 @@ module.exports = {
       components: path.join(srcPath, 'components', 'index.ts'),
       pages: path.join(srcPath, 'pages', 'index.ts')
     }
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        parallel: true,
+        test: /\.[tj]sx?$/
+      })]
   }
 }

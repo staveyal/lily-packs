@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-dom'
 import {
   BrowserRouter as Router,
   Route,
@@ -17,7 +17,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 })
 
-ReactDOM.render(<Router>
+render(<Router>
   <ApolloProvider client={client}>
     <Switch>
       <Route path='/'>
