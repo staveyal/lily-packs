@@ -4,7 +4,7 @@ const srcPath = path.join(__dirname, 'client')
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
-  devtool: 'inline-source-map',
+  // devtool: 'inline-source-map',
   entry: {
     app: path.join(srcPath, 'app.tsx')
   },
