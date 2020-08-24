@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === 'production') {
     // Check in the request headers if the protocol is HTTPS
     if (!req.secure) {
       // Redirect to HTTPS by parsing HTTP request parameters: host header, url
-      res.redirect(['https://', req.get('Host'), req.url].join(''))
+      res.redirect(307, ['https://', req.get('Host'), req.url].join(''))
       res.end()
     } else {
       next()
