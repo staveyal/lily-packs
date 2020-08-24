@@ -34,19 +34,14 @@ const BannerGradient = styled.div`
 
 // The icon that appears in the middle of the banner
 const LilyIcon = styled.img`
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 30vw;
-  width: 30vw;
-  z-index: 3; */
   position: absolute;
   top: -1vw;
   left: calc(50% - 12.5vw);
   height: 25vw;
   width: 25vw;
   z-index: 3;
-  background-image: url('/img/logo-white.png');
+  box-shadow: -1.5px 1.5px 5px #666;
+  border-radius: 22px;
   @media only screen and (max-width: 1200px) {
     /* position: absolute;
     top: 5vh;
