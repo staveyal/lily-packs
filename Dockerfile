@@ -7,6 +7,6 @@ COPY ./dist ./dist
 COPY ./public ./public
 COPY ./server/queries ./server/queries
 
-EXPOSE ${SERVERPORT}
+EXPOSE ${PORT}
 
 CMD ["npm", "start"]

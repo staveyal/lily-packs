@@ -5,7 +5,7 @@ import {
   useRouteMatch
 } from 'react-router-dom'
 import { PackDetails } from 'pages'
-import { Grid, Banner, Footer } from 'components'
+import { Grid, Banner, Footer, About } from 'components'
 
 const GridPage: FunctionComponent = () => <div>
   <Banner />

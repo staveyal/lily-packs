@@ -44,7 +44,7 @@ const Footer: FunctionComponent = () => <section> <FooterContainer>
   <IconContext.Provider value={{ size: '2.5rem', color: 'black' }} >
     <Icons>
       <a href='https://wa.me/972507400155'> <IoLogoWhatsapp /> </a>
-      <a href='tel:+972-50-740-0155'><FaPhoneAlt /></a>
+      <a href='tel:+972-50-740-0155'> <FaPhoneAlt /></a>
       <a href='https://www.facebook.com/lilypacks1/'><GrFacebook /></a>
       <Desc>להזמנות צרו קשר</Desc>
     </Icons>
