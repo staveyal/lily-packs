@@ -22,6 +22,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use((req, res, next) => {
     console.log(req.secure)
     console.log(req.protocol)
+    console.log(req.get('X-Forwarded-Proto'))
     // Check in the request headers if the protocol is HTTPS
     if (!req.secure) {
       // Redirect to HTTPS by parsing HTTP request parameters: host header, url
