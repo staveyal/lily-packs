@@ -41,8 +41,6 @@ const GridLink = styled(Link)`
   text-align: center;
   margin: 0 1rem;
   margin-bottom: 2.2rem;
-  transition: transform 0.2s ease-out, box-shadow 0.1s ease-out;
-  transition-delay: 0.1s ,0s;
   @media only screen and (max-width: 1200px) {
     flex-basis: calc(33% - 1.2rem);
     margin: 0 0.6rem;
@@ -55,10 +53,6 @@ const GridLink = styled(Link)`
     margin-bottom: 2.2rem;
     font-size: medium;
   }
-  &:hover {
-    box-shadow: #caa562d1 -11.5px -11.5px, rgb(102, 102, 102) -1.5px 1.5px 11px;
-    transform: translate(10px, 10px);
-  }
 `
 
 const Title = styled.p`
@@ -66,6 +60,8 @@ const Title = styled.p`
   margin-top: 1rem;
   color: black;
   text-decoration: none;
+  transition: transform 0.2s ease-out, box-shadow 0.1s ease-out;
+  transition-delay: 0.1s ,0s;
   &:hover, &:link, &:visited {
     color: black;
     text-decoration: none;
@@ -87,6 +83,10 @@ const Thumbnail = styled.div<{ src: string }>`
   border-radius: 1rem;
   @media only screen and (max-width: 768px) {
     height: 40vw;
+  }
+  &:hover {
+    box-shadow: #caa562d1 -11.5px -11.5px, rgb(102, 102, 102) -1.5px 1.5px 11px;
+    transform: translate(10px, 10px);
   }
 `
 
