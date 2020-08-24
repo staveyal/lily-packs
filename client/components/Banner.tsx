@@ -40,8 +40,6 @@ const LilyIcon = styled.img`
   height: 25vw;
   width: 25vw;
   z-index: 3;
-  box-shadow: -1.5px 1.5px 5px #666;
-  border-radius: 22px;
   @media only screen and (max-width: 1200px) {
     /* position: absolute;
     top: 5vh;
