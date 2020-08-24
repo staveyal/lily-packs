@@ -20,11 +20,8 @@ server.applyMiddleware({ app })
 // Force SSL in production
 if (process.env.NODE_ENV === 'production') {
   app.use((req, res, next) => {
-    console.log(req.secure)
-    console.log(req.protocol)
-    console.log(req.get('X-Forwarded-Proto'))
     // Check in the request headers if the protocol is HTTPS
-    if (!req.secure) {
+    if (req.get('x-forwarded-proto')) {
       // Redirect to HTTPS by parsing HTTP request parameters: host header, url
       res.redirect(307, ['https://', req.get('Host'), req.url].join(''))
       res.end()
