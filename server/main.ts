@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === 'production') {
     if (req.protocol !== 'https') {
       // Redirect to HTTPS by parsing HTTP request parameters: host header, url
       res.redirect(['https://', req.get('Host'), req.url].join(''))
-      next()
+      res.end()
     }
   })
 }
